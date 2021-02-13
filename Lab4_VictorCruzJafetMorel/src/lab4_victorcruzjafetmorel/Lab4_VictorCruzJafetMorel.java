@@ -1,25 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab4_victorcruzjafetmorel;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author 24661
- */
 public class Lab4_VictorCruzJafetMorel {
 
     static Scanner sc = new Scanner(System.in);
 
+    static ArrayList<Jugadores> lista1 = new ArrayList();
+    static ArrayList<Equipos> lista2 = new ArrayList();
+
     public static void main(String[] args) {
         try {
-            ArrayList<Jugadores> lista1 = new ArrayList();
-            ArrayList<Equipos> lista2 = new ArrayList();
 
             int menuPrincipal = 0;
             boolean seguir = true;
@@ -92,7 +84,7 @@ public class Lab4_VictorCruzJafetMorel {
 
                                     }//fin de la validacion
                                     System.out.println("Es pateador(1) o tirador(2)?");
-                                    
+
                                     lista1.add(new Tiradores());
                                     lista1.get(0).setNom_jug(n_jug);
                                     lista1.get(0).setA_nac(a_nac);
@@ -103,28 +95,27 @@ public class Lab4_VictorCruzJafetMorel {
                                     lista1.get(0).setMay_ed(may);
                                     lista1.get(0).setNum_cam(num_cam);
                                     lista1.get(0).setNum_cam(num_estre);
-                                    int tipo_j=sc.nextInt();
-                                    if(tipo_j==2){
-                                    System.out.println("Ingrese estadistica del tiro de 3{1-100]");
-                                    int tiro_tres = sc.nextInt();
-                                    System.out.println("Ingrese estadistica del tiro de 2{1-100]");
-                                    int tiro_dos = sc.nextInt();
-                                    System.out.println("Ingrese estadistica del manejo del balon {1-100]");
-                                    int man_b = sc.nextInt();
-                                    lista1.add(new Tiradores(tiro_tres, tiro_dos, man_b));
-                                    }else if(tipo_j==1){
+                                    int tipo_j = sc.nextInt();
+                                    if (tipo_j == 2) {
+                                        System.out.println("Ingrese estadistica del tiro de 3{1-100]");
+                                        int tiro_tres = sc.nextInt();
+                                        System.out.println("Ingrese estadistica del tiro de 2{1-100]");
+                                        int tiro_dos = sc.nextInt();
+                                        System.out.println("Ingrese estadistica del manejo del balon {1-100]");
+                                        int man_b = sc.nextInt();
+                                        lista1.add(new Tiradores(tiro_tres, tiro_dos, man_b));
+                                    } else if (tipo_j == 1) {
                                         System.out.println("Ingrese estadistica de la habilidad pateadora{1-100]");
-                                    int hp = sc.nextInt();
-                                    System.out.println("Ingrese estadistica de la fuerza{1-100]");
-                                    int f = sc.nextInt();
-                                    System.out.println("Ingrese estadistica de la habilidad regateadora {1-100]");
-                                    int hr = sc.nextInt();
-                                    lista1.add(new Pateadores(hp, f, hr));
-                                    
+                                        int hp = sc.nextInt();
+                                        System.out.println("Ingrese estadistica de la fuerza{1-100]");
+                                        int f = sc.nextInt();
+                                        System.out.println("Ingrese estadistica de la habilidad regateadora {1-100]");
+                                        int hr = sc.nextInt();
+                                        lista1.add(new Pateadores(hp, f, hr));
+
                                     }
                                     break;
-                                
-                                    
+
                                 case 3:
                                     seguir2 = false;
                                     break;
@@ -158,30 +149,100 @@ public class Lab4_VictorCruzJafetMorel {
                                                 + "9-Salir");
                                         System.out.print("-> ");
                                         op1 = sc.nextInt();
+                                        int pos1;
                                         switch (op1) {
                                             case 1:
-                                                
-
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese el nuevo nombre del equipo: ");
+                                                    String new_name = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setNombre_e(new_name);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
                                                 break;
                                             case 2:
-
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese el nuevo nombre del Estadio: ");
+                                                    String new_estadio = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setEstadio(new_estadio);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
                                                 break;
                                             case 3:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese el nuevo nombre Pais: ");
+                                                    String new_pais = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setPais(new_pais);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
 
                                                 break;
                                             case 4:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese el nuevo nombre del Entrenador: ");
+                                                    String new_entre = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setEntrenador_n(new_entre);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
 
                                                 break;
                                             case 5:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese el nuevo nombre del Dueno: ");
+                                                    String new_due = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setNombre_due(new_due);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
 
                                                 break;
                                             case 6:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese el nuevo nombre de la mascota: ");
+                                                    String new_mas = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setNombre_mas(new_mas);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
 
                                                 break;
                                             case 7:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese la nueva Fecha de creacion: ");
+                                                    String new_fecha = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setFecha_crea(new_fecha);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
 
                                                 break;
                                             case 8:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista2.get(pos1) instanceof Equipos) {
+                                                    System.out.println("Ingrese el nuevo Color : ");
+                                                    String new_color = sc.next();
+                                                    ((Equipos) lista2.get(pos1)).setColor(new_color);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
 
                                                 break;
                                             case 9:
@@ -193,13 +254,224 @@ public class Lab4_VictorCruzJafetMorel {
                                     }//fin del whileeeeeee
                                     break;
                                 case 2:
+                                    while (seguir2) {
+                                        System.out.println("1-Nombre\n"
+                                                + "2-Apodo \n"
+                                                + "3-Numero de Camiseta\n"
+                                                + "4-Equipo fav de Futbol\n"
+                                                + "5-Equipo fav de Baloncesto\n"
+                                                + "6-Jugador Fav"
+                                                + "7-año de nacimiento"
+                                                + "8-numero de estrellas"
+                                                + "9-Salir");
+                                        System.out.print("-> ");
+                                        op1 = sc.nextInt();
+                                        int pos1;
+                                        switch (op1) {
+                                            case 1:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo nombre del Jugador: ");
+                                                    String new_jug = sc.next();
+                                                    ((Jugadores) lista1.get(pos1)).setNom_jug(new_jug);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 2:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo apodo: ");
+                                                    String new_apod = sc.next();
+                                                    ((Jugadores) lista1.get(pos1)).setApodo(new_apod);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 3:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo numero de camiseta: ");
+                                                    int new_cam = sc.nextInt();
+                                                    ((Jugadores) lista1.get(pos1)).setNum_cam(new_cam);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+
+                                                break;
+                                            case 4:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo Equipo Favorito de Futbol: ");
+                                                    String new_favF = sc.next();
+                                                    ((Jugadores) lista1.get(pos1)).setFav_fut(new_favF);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+
+                                                break;
+                                            case 5:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo Equipo favorito de Baloncesto: ");
+                                                    String new_favB = sc.next();
+                                                    ((Jugadores) lista1.get(pos1)).setFav_bas(new_favB);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 6:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo Jugador Favorito: ");
+                                                    String new_favJ = sc.next();
+                                                    ((Jugadores) lista1.get(pos1)).setFav_play(new_favJ);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+
+                                                break;
+                                            case 7:
+
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo nombre año de nacimeinto : ");
+                                                    int new_an = sc.nextInt();
+                                                    ((Jugadores) lista1.get(pos1)).setA_nac(new_an);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 8:
+
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Jugadores) {
+                                                    System.out.println("Ingrese el nuevo nombre de numero de estrella[1-5]: ");
+                                                    int new_nume = sc.nextInt();
+                                                    ((Jugadores) lista1.get(pos1)).setNum_estre(new_nume);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 9:
+                                                seguir2 = false;
+                                                break;
+                                            default:
+                                                System.out.println("Ingrese una opcion valida!");
+                                        }//fin del switch
+                                    }//fin del whileeeeeee 
 
                                     break;
                                 case 3:
-
+                                    while (seguir2) {
+                                        System.out.println("1-Estadsitica tiro 2\n"
+                                                + "2-Estadistica tiro 3 \n"
+                                                + "3-Estadistica del manejo del balon\n"
+                                                + "4-salir \n");
+                                        System.out.print("-> ");
+                                        op1 = sc.nextInt();
+                                        int pos1;
+                                        switch (op1) {
+                                            case 1:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Tiradores) {
+                                                    System.out.println("Ingrese la nueva Estadistica de tiro 2[1-100]: ");
+                                                    int new_est2 = sc.nextInt();
+                                                    ((Tiradores) lista1.get(pos1)).setTiro_2(new_est2);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 2:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Tiradores) {
+                                                    System.out.println("Ingrese la nueva Estadistica de tiro 3[1-100]: ");
+                                                    int new_est3 = sc.nextInt();
+                                                    ((Tiradores) lista1.get(pos1)).setTiro_tres(new_est3);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                            case 3:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Tiradores) {
+                                                    System.out.println("Ingrese la nueva Estadistica del manejo del balon[1-100]: ");
+                                                    int new_mb = sc.nextInt();
+                                                    ((Tiradores) lista1.get(pos1)).setMan_balon(new_mb);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 4:
+                                                seguir2 = false;
+                                                break;
+                                            default:
+                                                System.out.println("Ingrese una opcion valida!");
+                                        }//fin del switch
+                                    }//fin del whileeeeeee 
                                     break;
                                 case 4:
+                                    while (seguir2) {
+                                        System.out.println("1-Habilidad Pateadora\n"
+                                                + "2-Fuerza \n"
+                                                + "3-Habilidad Regateadora \n"
+                                                + "4-salir \n");
+                                        System.out.print("-> ");
+                                        op1 = sc.nextInt();
+                                        int pos1;
+                                        switch (op1) {
+                                            case 1:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Pateadores) {
+                                                    System.out.println("Ingrese la nueva Estadistica Pateadora[1-100]: ");
+                                                    int new_hp = sc.nextInt();
+                                                    ((Pateadores) lista1.get(pos1)).setHp(new_hp);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
+                                            case 2:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Pateadores) {
+                                                    System.out.println("Ingrese la nueva Estadistica de la Fuerza[1-100]: ");
+                                                    int new_f = sc.nextInt();
+                                                    ((Pateadores) lista1.get(pos1)).setF(new_f);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+                                                break;
 
+                                            case 3:
+                                                System.out.println("ingrese la posicion del producto a modificar");
+                                                pos1 = sc.nextInt();
+                                                if (lista1.get(pos1) instanceof Pateadores) {
+                                                    System.out.println("Ingrese la nueva Estadistica Regateadora[1-100]: ");
+                                                    int new_hr = sc.nextInt();
+                                                    ((Pateadores) lista1.get(pos1)).setHr(new_hr);
+                                                } else {
+                                                    System.out.println("La posicion no tiene un elemento a modificar!!!");
+                                                }//fin del else
+
+                                                break;
+                                            case 4:
+                                                seguir2 = false;
+                                                break;
+                                            default:
+                                                System.out.println("Ingrese una opcion valida!");
+                                        }//fin del switch
+                                    }//fin del whileeeeeee
                                     break;
                                 case 5:
                                     seguir2 = false;
@@ -317,6 +589,7 @@ public class Lab4_VictorCruzJafetMorel {
                         }//fin del while
                         break;
                     case 5://simulacion
+                        simulacion();
                         break;
                     case 6:
                         seguir = false;
@@ -330,7 +603,130 @@ public class Lab4_VictorCruzJafetMorel {
         }//fin del try and catch
     }//fin del main
 
-    public void simulacion() {
+    public static void simulacion() {
+        boolean ganador1 = false, ganador2 = false, punto=false;
+        int turno = 1, pt_j1 = 0, pt_j2 = 0, j11=0, j12=0,j13=0,j14=0,j15=0,j21=0,j22=0,j23=0,j24=0,j25=0;
+        while (ganador1 == false & ganador2 == false) {
+            
+            String output = "";
+            int pos=0;
+            if (turno % 2 == 1) {
+                for (Object t : lista2) {
+                    if (t instanceof Jugadores) {
+                        output += lista1.indexOf(t) + "-->" + t + "\n";
+                    }//fin del if
+                }//fin del for
 
+                System.out.println();
+                for (int i = 0; i < 5; i++) {
+                    System.out.print("Desea pasar?");
+                    char res = sc.next().charAt(0);
+                    if (res == 'n' | res == 'N') {
+                        break;
+                    }
+                    System.out.println("ingrese posición de jugador al que desea pasar");
+                    pos = sc.nextInt();
+                }
+                switch(pos){
+                    case 0:
+                        j11++;
+                        break;
+                    case 1:
+                        j12++;
+                        break;
+                    case 2:
+                        j13++;
+                        break;
+                    case 3:
+                        j14++;
+                        break;
+                    case 4:
+                        j15++;
+                        break;
+                }
+                Tiradores f = new Tiradores();
+                Tiradores d = new tiro2();
+                Pateadores p = new Pateadores();
+                if (lista1.get(pos) instanceof Tiradores) {
+                    System.out.println("Desea tirar de 3 o de 2 puntos?");
+                    int pt= sc.nextInt();
+                    if(pt==2){
+                       punto=f.anotar();
+                    }else if(pt==3){
+                        punto=d.anotar();
+                    }
+                }else if(lista1.get(pos) instanceof Pateadores){
+                    punto=p.anotar();
+                }
+                if (punto == true) {
+                    pt_j1++;
+
+                }
+            }else{
+                for (Object t : lista2) {
+                    if (t instanceof Jugadores) {
+                        output += lista1.indexOf(t) + "-->" + t + "\n";
+                    }//fin del if
+                }//fin del for
+
+                System.out.println();
+                for (int i = 0; i < 5; i++) {
+                    System.out.print("Desea pasar?");
+                    char res = sc.next().charAt(0);
+                    if (res == 'n' | res == 'N') {
+                        break;
+                    }
+                    System.out.println("ingrese posición de jugador al que desea pasar");
+                    pos = sc.nextInt();
+                }
+                switch(pos){
+                    case 0:
+                        j21++;
+                        break;
+                    case 1:
+                        j22++;
+                        break;
+                    case 2:
+                        j23++;
+                        break;
+                    case 3:
+                        j24++;
+                        break;
+                    case 4:
+                        j25++;
+                        break;
+                }
+                Tiradores f = new Tiradores();
+                Tiradores d = new tiro2();
+                Pateadores p = new Pateadores();
+                if (lista1.get(pos) instanceof Tiradores) {
+                    System.out.println("Desea tirar de 3 o de 2 puntos?");
+                    int pt= sc.nextInt();
+                    if(pt==2){
+                       punto=f.anotar();
+                    }else if(pt==3){
+                        punto=d.anotar();
+                    }
+                }else if(lista1.get(pos) instanceof Pateadores){
+                    punto=p.anotar();
+                }
+                if (punto == true) {
+                    pt_j2++;
+
+                }
+            }
+            if(pt_j1==11){
+                ganador1=true;
+            }else if(pt_j2 ==11){
+                ganador2=true;
+            }
+            turno++;
+        }
+        if(ganador1==true){
+            System.out.println("El ganador fue el jugador 1.");
+        }else if(ganador2==true){
+            System.out.println("El ganador fue el jugador 2.");
+        }
+        System.out.println("El jugador uno anotó "+pt_j1+" puntos. El jugador dos anotó "+" puntos.\n");
     }
 }
